@@ -42,6 +42,7 @@
 \RequirePackage{mathtools}
 \RequirePackage{wrapfig}
 \RequirePackage{fdsymbol}
+\RequirePackage{bbold}
 
 % -- Malen
 \RequirePackage{units}
