@@ -287,18 +287,23 @@
 % Theorems
 
 % Styles
+
 \newtheoremstyle{definition}%
   {\item[\hskip\labelsep\normalfont\bfseries ##1~##2.]}%
   {\item[\hskip\labelsep\normalfont\bfseries ##1~##2\normalfont\ (##3).]}
+
 \newtheoremstyle{nonumberdefinition}%
   {\item[\hskip\labelsep\normalfont\bfseries ##1.]}%
   {\item[\hskip\labelsep\normalfont\bfseries ##1\normalfont\ (##3).]}
+
 \newtheoremstyle{remark}%
   {\item[\hskip\labelsep\normalfont\itshape ##1~##2.]}%
   {\item[\hskip\labelsep\normalfont\itshape ##1~##2\/\normalfont\ (##3).]}
+
 \newtheoremstyle{nonumberremark}%
   {\item[\hskip\labelsep\normalfont\itshape ##1.]}%
   {\item[\hskip\labelsep\normalfont\itshape ##1\/\normalfont\ (##3).]}
+
 \newtheoremstyle{smalltheorem}
   {\item[\hskip\labelsep\normalfont\itshape\small ##1.]}
   {\item[\hskip\labelsep\normalfont\itshape\small ##1\/\normalfont\small\ (##3).]}
@@ -308,34 +313,53 @@
 \theorembodyfont{\normalfont}
 \theoremstyle{definition}
 \theorempostskip{1.8em}
-\newtheorem{definition}{Definition}[chapter]
+
+\newtheorem{definition}{Definition}[section]
 \renewtheorem*{definition*}{Definition}
 \crefname{definition}{Definition}{Definitionen}
+
 \newtheorem{proposition}[definition]{Proposition}
 \renewtheorem*{proposition*}{Proposition}
 \crefname{proposition}{Proposition}{Propositionen}
+
 \newtheorem{lemma}[definition]{Lemma}
 \renewtheorem*{lemma*}{Lemma}
 \crefname{lemma}{Lemma}{Lemmas}
+
 \newtheorem{theorem}[definition]{Satz}
 \renewtheorem*{theorem*}{Satz}
 \crefname{theorem}{Satz}{Sätze}
+
 \newtheorem{corollary}[definition]{Korollar}
 \renewtheorem*{corollary*}{Korollar}
 \crefname{corollary}{Korollar}{Korollare}
+
 \newtheorem{example}[definition]{Beispiel}
 \renewtheorem*{example*}{Beispiel}
 \crefname{example}{Beispiel}{Beispiele}
+
 \newtheorem{problem}[definition]{Aufgabe}
 \renewtheorem*{problem*}{Aufgabe}
 \crefname{problem}{Aufgabe}{Aufgaben}
-\newtheorem{remark}{Bemerkung}
-\newtheorem{excourse}{Exkurs}
-\newtheorem{addition}{Ergänzung}
-\newtheorem{deduction}{Folgerung}
+
+\newtheorem{remark}[definition]{Bemerkung}
+\renewtheorem*{remark*}{Bemerkung}
+\crefname{remark}{Bemerkung}{Bemerkungen}
+
+\newtheorem{excourse}[definition]{Exkurs}
+\renewtheorem*{excourse*}{Exkurs}
+\crefname{excourse}{Exkurs}{Exkurse}
+
+\newtheorem{addition}[definition]{Ergänzung}
+\renewtheorem*{addition*}{Ergänzung}
+\crefname{addition}{Ergänzung}{Ergänzungen}
+
+\newtheorem{deduction}[definition]{Folgerung}
 \theoremstyle{nonumberremark}
-\newtheorem{claim}{Behauptung}
+
+\newtheorem{claim}[definition]{Behauptung}
 \theoremstyle{smalltheorem}
+
 \newtheorem{proof}{Beweis}
 
 % QED symbol
@@ -500,5 +524,10 @@
 
 % Punkte zu Kommas in Mathe-Umgebungen
 \DeclareMathSymbol{.}{\mathord}{letters}{"3B}
+
+% Römische Zahlen
+\newcommand{\rom}[1]{%
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
 
 \endinput
