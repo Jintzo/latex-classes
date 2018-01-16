@@ -3,7 +3,7 @@
 
 
 % load base class
-\LoadClass[aip,jmp,amsmath,amssymb,reprint,nobalancelastpage]{revtex4-1}
+\LoadClass[aip,jmp,reprint,nobalancelastpage]{revtex4-1}
 
 
 % Packages --- General
@@ -14,13 +14,16 @@
 \RequirePackage[parfill]{parskip}
 \RequirePackage[pdfstartview={FitH},pdfborder={0 0 0},hyperindex=false]{hyperref}
 \RequirePackage{enumitem}
-\RequirePackage{crimson}
 \RequirePackage{scrextend}
 \RequirePackage{titlesec}
 \RequirePackage{environ}
 \RequirePackage[compatibility=true]{caption}
 \RequirePackage{float}
 
+% Packages --- Fonts
+\RequirePackage{crimson}
+\RequirePackage{FiraSans}
+\usepackage[ttdefault=true]{AnonymousPro}
 
 % Packages --- Math
 \RequirePackage[fleqn]{mathtools}
@@ -29,7 +32,7 @@
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{fdsymbol}
-\RequirePackage{bm}
+\RequirePackage{bbold}
 
 % Packages --- Code
 \RequirePackage{listings}
@@ -38,10 +41,6 @@
 \RequirePackage{graphicx}
 \RequirePackage{tikz}
 \RequirePackage{tcolorbox}
-
-
-% Glyph-to-Unicode Translation for searching in PDFs (needs PdfTex >=1.4)
-\InputIfFileExists{glyphtounicode}{\pdfgentounicode=1}{}
 
 
 % Title
@@ -210,5 +209,15 @@
   }
 \DeclareCaptionLabelFormat{mylabel}{#1}
 \captionsetup{labelfont=bf,labelformat=mylabel,textformat=period,font={small}}
+
+\newenvironment{pseudocode}
+  {
+    \begin{tcolorbox}[colframe=black!3!white]
+    \ttfamily
+    \small
+  }
+  {
+    \end{tcolorbox}
+  }
 
 \endinput
