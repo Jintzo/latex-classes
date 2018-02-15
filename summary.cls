@@ -19,11 +19,7 @@
 \RequirePackage{environ}
 \RequirePackage[compatibility=true]{caption}
 \RequirePackage{float}
-
-% Packages --- Fonts
-\RequirePackage{crimson}
-\RequirePackage{FiraSans}
-\usepackage[ttdefault=true]{AnonymousPro}
+% \RequirePackage[document]{ragged2e}
 
 % Packages --- Math
 \RequirePackage[fleqn]{mathtools}
@@ -31,8 +27,13 @@
 \RequirePackage{amsfonts}
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
-\RequirePackage{fdsymbol}
 \RequirePackage{bbold}
+
+% Packages --- Fonts
+\RequirePackage{crimson}
+\RequirePackage{FiraSans}
+\RequirePackage[ttdefault=true]{AnonymousPro}
+\RequirePackage{fdsymbol}
 
 % Packages --- Code
 \RequirePackage{listings}

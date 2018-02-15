@@ -25,7 +25,6 @@
 
 
 % Packages
-\RequirePackage[ngerman]{babel}
 \RequirePackage{geometry}
 \RequirePackage{xcolor}
 \RequirePackage{etoolbox}
@@ -33,14 +32,19 @@
 \RequirePackage{titletoc}
 \RequirePackage[fleqn]{mathtools}
 \RequirePackage{enumitem}
-\RequirePackage{textcase}
 \RequirePackage{setspace}
-\RequirePackage{xspace}
-\RequirePackage{multirow}
 \RequirePackage{booktabs}
 \RequirePackage[utf8x]{inputenc}
 \RequirePackage[T1]{fontenc}
+\RequirePackage{tcolorbox}
+
+\RequirePackage{listings}
+
+% fonts
 \RequirePackage{crimson}
+\RequirePackage{FiraSans}
+\RequirePackage[ttdefault=true]{AnonymousPro}
+
 \RequirePackage{amsmath}
 \RequirePackage{wrapfig}
 \RequirePackage{bm}
@@ -63,6 +67,8 @@
 \RequirePackage[hyperref,amsmath]{ntheorem}
 \RequirePackage[capitalise]{cleveref}
 
+\RequirePackage[ngerman]{babel}
+ 
 % Support for discretionary breakpoints and suppression of italic correction
 
 \newcommand{\dbr}{\discretionary{}{}{}}
@@ -504,7 +510,7 @@
 \let\origphi\phi
 \let\phi\varphi
 \let\origtheta\theta
-\let\theta\vartheta
+% \let\theta\vartheta
 \let\origepsilon\epsilon
 \let\epsilon\varepsilon
 \let\origupepsilon\upepsilon
@@ -529,5 +535,30 @@
 \newcommand{\rom}[1]{%
   \textup{\uppercase\expandafter{\romannumeral#1}}%
 }
+
+% Pseudocode-Umgebung
+\newenvironment{pseudocode}
+  {
+    \begin{tcolorbox}[colframe=black!3!white,left=0mm]
+    \ttfamily
+    \footnotesize
+  }
+  {
+    \end{tcolorbox}
+  }
+
+% Frage-Umgebung
+\newcounter{problemcounter}
+\newenvironment{assignment}[1]
+  {
+    \refstepcounter{problemcounter}
+    \begin{tcolorbox}[colback=black!3!white,colframe=black!15!white,coltitle=black,fonttitle=\bfseries,title=Aufgabe \theproblemcounter --- #1,arc=0mm,toprule=0.2mm,bottomrule=0.2mm,leftrule=0.2mm,rightrule=0.2mm,left=1mm,right=1mm,titlerule=0mm,middle=0.5mm]
+  }
+  {
+    \end{tcolorbox}
+  }
+
+% Inline-Code
+\newcommand{\code}[1]{\lstinline[language=c,basicstyle=\ttfamily]|#1|}
 
 \endinput
