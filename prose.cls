@@ -347,6 +347,7 @@
 \newtheorem{problem}{Aufgabe}[section]
 \renewtheorem*{problem*}{Aufgabe}
 \crefname{problem}{Aufgabe}{Aufgaben}
+\renewcommand{\theproblem}{\arabic{problem}}
 
 \newtheorem{remark}[definition]{Bemerkung}
 \renewtheorem*{remark*}{Bemerkung}
