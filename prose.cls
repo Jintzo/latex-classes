@@ -344,7 +344,7 @@
 \renewtheorem*{example*}{Beispiel}
 \crefname{example}{Beispiel}{Beispiele}
 
-\newtheorem{problem}{Aufgabe}[chapter]
+\newtheorem{problem}{Aufgabe}[section]
 \renewtheorem*{problem*}{Aufgabe}
 \crefname{problem}{Aufgabe}{Aufgaben}
 
