@@ -28,13 +28,13 @@
 \RequirePackage{geometry}
 \RequirePackage{xcolor}
 \RequirePackage{etoolbox}
-\RequirePackage[clearempty,pagestyles,newlinetospace]{titlesec}
+\RequirePackage[clearempty,pagestyles,newlinetospace,nobottomtitles]{titlesec}
 \RequirePackage{titletoc}
 \RequirePackage[fleqn]{mathtools}
 \RequirePackage{enumitem}
 \RequirePackage{setspace}
 \RequirePackage{booktabs}
-\RequirePackage[utf8x]{inputenc}
+\RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{tcolorbox}
 
