@@ -315,6 +315,7 @@
   {\item[\hskip\labelsep\normalfont\itshape\small ##1\/\normalfont\small\ (##3).]}
   {\normalfont\small}
 \AtBeginEnvironment{proof}{\small}
+\AtBeginEnvironment{solution}{\small}
 % Declarations
 \theorembodyfont{\normalfont}
 \theoremstyle{definition}
@@ -368,6 +369,7 @@
 \theoremstyle{smalltheorem}
 
 \newtheorem{proof}{Beweis}
+\newtheorem{solution}{Lösung}
 
 % QED symbol
 \renewcommand{\qedsymbol}{$\square$}
