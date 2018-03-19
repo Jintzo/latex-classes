@@ -123,6 +123,10 @@
     urlcolor={blue!80!black}
 }
 
+% prettier multiplication symbols
+\mathcode`\*="8000
+{\catcode`\*\active\gdef*{\cdot}}
+
 
 % custom section
 \titleformat{\section}{\normalfont\huge}{}{0em}{}
