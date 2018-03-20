@@ -134,7 +134,7 @@
 
 % custom paragraph
 \titleformat{\paragraph}{\large\bfseries\scshape}{}{0em}{}
-\titlespacing*{\paragraph}{0em}{1em}{0em}
+\titlespacing*{\paragraph}{0em}{0.3em}{0em}
 
 
 % reduce font size
