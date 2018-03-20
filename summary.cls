@@ -15,7 +15,7 @@
 \RequirePackage[pdfstartview={FitH},pdfborder={0 0 0},hyperindex=false]{hyperref}
 \RequirePackage{enumitem}
 \RequirePackage{scrextend}
-\RequirePackage{titlesec}
+\RequirePackage[clearempty,pagestyles,newlinetospace,nobottomtitles]{titlesec}
 \RequirePackage{environ}
 \RequirePackage[compatibility=true]{caption}
 \RequirePackage{float}
@@ -130,11 +130,12 @@
 
 % custom section
 \titleformat{\section}{\normalfont\huge}{}{0em}{}
+\titlespacing*{\section}{0em}{1.5em}{0em}
 
 
 % custom paragraph
 \titleformat{\paragraph}{\large\bfseries\scshape}{}{0em}{}
-\titlespacing*{\paragraph}{0em}{0.3em}{0em}
+\titlespacing*{\paragraph}{0em}{0.5em}{0em}
 
 
 % reduce font size
