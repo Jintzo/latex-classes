@@ -7,11 +7,11 @@
 
 %%
 % load own custom style
-\input{jens-common.tex}
+\input{latex-classes/jens-common.tex}
 
 %%
 % load common tufte style
-\input{tufte-common.tex}
+\input{latex-classes/tufte-common.tex}
 
 \RequirePackage{mathtools}  
 \RequirePackage{hyperref}
