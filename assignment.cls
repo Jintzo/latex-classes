@@ -1,9 +1,12 @@
 \ProvidesClass{assignment}[assignment class (Jens Ochsenmeier)]
 \NeedsTeXFormat{LaTeX2e}[1996/06/01]
 
-
 % load base class
 \LoadClass{tufte-handout}
+
+%%
+% load own custom style
+\input{jens-common.tex}
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8x]{inputenc}
