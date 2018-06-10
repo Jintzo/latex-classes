@@ -1,15 +1,28 @@
-\ProvidesClass{prose}[]
+% Copyright (c) 2010 Michael Ummels <michael@ummels.de>
+%
+% Permission to use, copy, modify, and/or distribute this software for any
+% purpose with or without fee is hereby granted, provided that the above
+% copyright notice and this permission notice appear in all copies.
+%
+% THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+% WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+% MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+% ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+% WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+% ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+% OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+\ProvidesClass{prose}[2016/07/26 v1.6 prose class (Michael Ummels, Jens Ochsenmeier)]
 \NeedsTeXFormat{LaTeX2e}[1996/06/01]
+
 
 % Options
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extbook}}
 \ProcessOptions\relax
+
 \LoadClass[9pt,fleqn]{extbook}
 
-%%
-% load own custom style
-\input{jens-common.tex}
 
 % Packages
 \RequirePackage{geometry}
@@ -21,6 +34,8 @@
 \RequirePackage{enumitem}
 \RequirePackage{setspace}
 \RequirePackage{booktabs}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
 \RequirePackage{tcolorbox}
 
 \RequirePackage{listings}
@@ -28,15 +43,15 @@
 % fonts
 \RequirePackage{crimson}
 \RequirePackage{FiraSans}
-\RequirePackage[ttdefault=true]{AnonymousPro}
 
+\RequirePackage{amsmath}
 \RequirePackage{wrapfig}
 \RequirePackage{bm}
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
 \RequirePackage{fdsymbol}
 \RequirePackage[eqno]{tabfigures}
-\RequirePackage{natbib}
+\RequirePackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
 \RequirePackage{index}
 \RequirePackage{tikz}
 \RequirePackage[pdfstartview={FitH},pdfborder={0 0 0},hyperindex=false]{hyperref}
@@ -57,6 +72,11 @@
 
 \newcommand{\dbr}{\discretionary{}{}{}}
 \newcommand{\nocorr}{\kern0pt}
+
+
+% Glyph-to-Unicode Translation for searching in PDFs (needs PdfTex >=1.4)
+
+\InputIfFileExists{glyphtounicode}{\pdfgentounicode=1}{}
 
 
 % Ornaments
@@ -350,6 +370,17 @@
 \newtheorem{proof}{Beweis}
 \newtheorem{solution}{Lösung}
 
+% QED symbol
+\renewcommand{\qedsymbol}{$\square$}
+\newcommand{\mathqed}{}
+\DeclareRobustCommand{\qed}{%
+  \ifmmode \mathqed
+  \else
+    \leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill
+    \quad\hbox{\qedsymbol}%
+  \fi  
+}
+
 
 % Lists
 
@@ -384,13 +415,6 @@
   }%
   \item%
 }{\end{list}}
-
-
-% Bibliography
-
-\setcitestyle{aysep={}}
-\newcommand\cites[2][]{\citep[see][#1]{#2}}
-\setlength{\bibhang}{\diss@indent}
 
 
 % Indexing
@@ -454,6 +478,58 @@
 \renewcommand{\@idxitem}{\par\hangindent2em}
 \renewcommand{\subitem}{\par\hangindent2em\hspace*{1em}}
 \renewcommand{\subsubitem}{\par\hangindent2em\hspace*{1.5em}}
+
+
+% Math declarations
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\ot}{\leftarrow}
+\newcommand{\To}{\implies}
+
+\newcommand{\e}{\text{\rmfamily e}}
+\renewcommand{\i}{\text{\rmfamily i}}
+\renewcommand{\O}{\mathcal{O}}
+
+\let\lim\undefined
+\DeclareMathOperator{\lim}{lim}
+\let\liminf\undefined
+\DeclareMathOperator{\liminf}{lim\,inf}
+\let\limsup\undefined
+\DeclareMathOperator{\limsup}{lim\,sup}
+
+\let\origphi\phi
+\let\phi\varphi
+\let\origtheta\theta
+% \let\theta\vartheta
+\let\origepsilon\epsilon
+\let\epsilon\varepsilon
+\let\origupepsilon\upepsilon
+\let\upepsilon\upvarepsilon
+
+\let\smallfrac\@undefined
+\newcommand{\smallfrac}[2]{\ensuremath{\frac{#1}{#2}}}
+
+\newcommand{\term}[1]{\textcolor{red!70!black}{\textbf{#1}}}
+
+% Pfad, an dem Grafiken abgelegt werden
+\graphicspath{{assets/images/}}
+
+% schönere Malpunkte
+\mathcode`\*="8000
+{\catcode`\*\active\gdef*{\cdot}}
+
+% Punkte zu Kommas in Mathe-Umgebungen
+\DeclareMathSymbol{.}{\mathord}{letters}{"3B}
+
+% Römische Zahlen
+\newcommand{\rom}[1]{%
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
 
 % Pseudocode-Umgebung
 \newenvironment{pseudocode}

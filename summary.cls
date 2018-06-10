@@ -15,7 +15,7 @@
 \RequirePackage[pdfstartview={FitH},pdfborder={0 0 0},hyperindex=false]{hyperref}
 \RequirePackage{enumitem}
 \RequirePackage{scrextend}
-\RequirePackage[clearempty,pagestyles,newlinetospace,nobottomtitles]{titlesec}
+\RequirePackage{titlesec}
 \RequirePackage{environ}
 \RequirePackage[compatibility=true]{caption}
 \RequirePackage{float}
@@ -123,19 +123,14 @@
     urlcolor={blue!80!black}
 }
 
-% prettier multiplication symbols
-\mathcode`\*="8000
-{\catcode`\*\active\gdef*{\cdot}}
-
 
 % custom section
 \titleformat{\section}{\normalfont\huge}{}{0em}{}
-\titlespacing*{\section}{0em}{1.5em}{0em}
 
 
 % custom paragraph
 \titleformat{\paragraph}{\large\bfseries\scshape}{}{0em}{}
-\titlespacing*{\paragraph}{0em}{0.5em}{0em}
+\titlespacing*{\paragraph}{0em}{1em}{0em}
 
 
 % reduce font size
