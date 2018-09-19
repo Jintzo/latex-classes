@@ -32,7 +32,7 @@
 % Packages --- Fonts
 \RequirePackage{crimson}
 \RequirePackage{FiraSans}
-\RequirePackage[ttdefault=true]{AnonymousPro}
+\usepackage{FiraMono}
 \RequirePackage{fdsymbol}
 
 % Packages --- Code
@@ -175,7 +175,7 @@
   stringstyle=\color{orange},
 }
 
-\newcommand{\code}[1]{\lstinline[language=c,basicstyle=\ttfamily]|#1|}
+\newcommand{\code}[1]{\lstinline[language=c,basicstyle=\footnotesize\ttfamily]|#1|}
 \lstset{basicstyle=\ttfamily}
 \lstset{escapechar=@,style=customc}
 \lstset{columns=spaceflexible}
