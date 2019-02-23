@@ -35,7 +35,7 @@
 
 \RequirePackage{wrapfig}
 \RequirePackage[eqno]{tabfigures}
-\RequirePackage{natbib}
+\RequirePackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
 \RequirePackage{index}
 \RequirePackage[pdfstartview={FitH},pdfborder={0 0 0},hyperindex=false]{hyperref}
 \hypersetup{
@@ -378,13 +378,6 @@
   }%
   \item%
 }{\end{list}}
-
-
-% Bibliography
-
-\setcitestyle{aysep={}}
-\newcommand\cites[2][]{\citep[see][#1]{#2}}
-\setlength{\bibhang}{\diss@indent}
 
 
 % Indexing
