@@ -1,18 +1,4 @@
-% Copyright (c) 2010 Michael Ummels <michael@ummels.de>
-%
-% Permission to use, copy, modify, and/or distribute this software for any
-% purpose with or without fee is hereby granted, provided that the above
-% copyright notice and this permission notice appear in all copies.
-%
-% THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-% WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-% MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-% ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-% WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-% ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-% OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-\ProvidesClass{prose}[2016/07/26 v1.6 prose class (Michael Ummels, Jens Ochsenmeier)]
+\ProvidesClass{prose}[2019/02/23 v1.6 prose class (Jens Ochsenmeier)]
 \NeedsTeXFormat{LaTeX2e}[1996/06/01]
 
 
@@ -21,13 +7,12 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extbook}}
 \ProcessOptions\relax
 
-\LoadClass[9pt,fleqn]{extbook}
+\LoadClass[a4paper, oneside]{report}
 
 
 % Packages
 \RequirePackage{geometry}
 \RequirePackage{xcolor}
-\RequirePackage{etoolbox}
 \RequirePackage[clearempty,pagestyles,newlinetospace,nobottomtitles]{titlesec}
 \RequirePackage{titletoc}
 \RequirePackage[fleqn]{mathtools}
@@ -35,26 +20,23 @@
 \RequirePackage{setspace}
 \RequirePackage{booktabs}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[T1]{fontenc}
 \RequirePackage{tcolorbox}
 
 \RequirePackage{listings}
 
 % fonts
-\RequirePackage{crimson}
-\RequirePackage{FiraSans}
-\RequirePackage[ttdefault=true]{AnonymousPro}
+\RequirePackage{stmaryrd}
+\RequirePackage{lmodern}
+\RequirePackage{libertine}
+\RequirePackage[libertine]{newtxmath}
+\RequirePackage{courier}
+\RequirePackage[T1]{fontenc}
+\renewcommand{\familydefault}{\sfdefault}
 
-\RequirePackage{amsmath}
 \RequirePackage{wrapfig}
-\RequirePackage{bm}
-\RequirePackage{amsfonts}
-\RequirePackage{amssymb}
-\RequirePackage{fdsymbol}
 \RequirePackage[eqno]{tabfigures}
 \RequirePackage{natbib}
 \RequirePackage{index}
-\RequirePackage{tikz}
 \RequirePackage[pdfstartview={FitH},pdfborder={0 0 0},hyperindex=false]{hyperref}
 \hypersetup{
     colorlinks,
@@ -83,26 +65,6 @@
 % Ornaments
 
 \newcommand{\mydiss@diamond}{\textbullet}
-
-% Page style
-
-% Geometry settings
-\geometry{
-  paperwidth=156mm,
-  paperheight=234mm,
-  twoside,
-  left=20.8mm,
-  top=20.2mm,
-  marginpar=23mm,
-  headsep=1pc,
-  marginparsep=1em,
-  footskip=9ex
-}
-
-\geometry{
-  textwidth = 104mm,
-  textheight = 177mm,
-}
 
 % Header/Footer
 \newpagestyle{main}{
