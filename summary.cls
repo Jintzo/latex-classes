@@ -24,16 +24,15 @@
 % Packages --- Math
 \RequirePackage[fleqn]{mathtools}
 \RequirePackage[hyperref,amsmath]{ntheorem}
-\RequirePackage{amsfonts}
-\RequirePackage{amsmath}
-\RequirePackage{amssymb}
-\RequirePackage{bbold}
 
 % Packages --- Fonts
-\RequirePackage{crimson}
-\RequirePackage{FiraSans}
-\usepackage{FiraMono}
-\RequirePackage{fdsymbol}
+\RequirePackage{stmaryrd}
+\RequirePackage{lmodern}
+\RequirePackage{libertine}
+\RequirePackage[libertine]{newtxmath}
+\RequirePackage{courier}
+\RequirePackage[T1]{fontenc}
+\renewcommand{\familydefault}{\sfdefault}
 
 % Packages --- Code
 \RequirePackage{listings}
