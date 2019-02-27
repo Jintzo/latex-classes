@@ -1,17 +1,9 @@
 \ProvidesClass{prose}[2019/02/23 v1.6 prose class (Jens Ochsenmeier)]
 \NeedsTeXFormat{LaTeX2e}[1996/06/01]
-
-
-% Options
-
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{extbook}}
-\ProcessOptions\relax
-
 \LoadClass[a4paper, oneside]{report}
 
-
 % Packages
-\RequirePackage{geometry}
+\RequirePackage[top=2cm, bottom=2cm, outer=2cm, inner=2cm, heightrounded]{geometry}
 \RequirePackage{xcolor}
 \RequirePackage[clearempty,pagestyles,newlinetospace,nobottomtitles]{titlesec}
 \RequirePackage{titletoc}
@@ -38,18 +30,23 @@
 \RequirePackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
 \RequirePackage{index}
 \RequirePackage[pdfstartview={FitH},pdfborder={0 0 0},hyperindex=false]{hyperref}
-\hypersetup{
-    colorlinks,
-    linkcolor={red!70!black},
-    citecolor={blue!50!black},
-    urlcolor={blue!80!black}
-}
 \RequirePackage[compatibility=true,font={footnotesize,it}]{caption}
 \RequirePackage{floatrow}
 \RequirePackage[hyperref,amsmath]{ntheorem}
 \RequirePackage[capitalise]{cleveref}
 
 \RequirePackage[ngerman]{babel}
+
+% Accent
+\definecolor{accent}{rgb}{0.45,0.45,0.45}
+\DeclareOption{green}{\definecolor{accent}{rgb}{0,0.65,0.37}}
+\DeclareOption{red}{\definecolor{accent}{rgb}{0.75,0.22,0.22}}
+\DeclareOption{orange}{\definecolor{accent}{rgb}{1, 0.6, 0}}
+\DeclareOption{blue}{\definecolor{accent}{rgb}{0, 0.2, 0.6}}
+\DeclareOption{purple}{\definecolor{accent}{rgb}{0.65,0,0.37}}
+
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
+\ProcessOptions\relax
  
 % Support for discretionary breakpoints and suppression of italic correction
 
@@ -85,7 +82,8 @@
 % Line spread
 \newcommand{\diss@spread}{1.25}
 \setstretch{\diss@spread}
-%\setlength{\parskip}{0pt}
+\setlength{\parskip}{\baselineskip}
+\newcommand{\@minipagerestore}{\setlength{\parskip}{\baselineskip}}
 
 % Indentation
 \newlength{\diss@indent}
@@ -132,41 +130,15 @@
 \titleformat{\subsubsection}[runin]{\normalfont\itshape}{\thesubsubsection}%
   {.5em}{\periodafter}
 
-\definecolor{chaptergrey}{rgb}{0.7,0.7,0.7}
-
-\titleformat{name=\chapter}[display]%
-  {\normalfont\hfuzz=\maxdimen}%
-  {\color{chaptergrey}%
-   %\ifodd\thepage\raggedleft\else\raggedright\fi%
-   \raggedleft%
-   \fontseries{bx}%
-   \fontsize{96}{96}\selectfont%
-   \setlength{\baselineskip}{\z@}%
-   \edef\@tempa{\chaptertitlename}%
-   \ifx\@tempa\chaptername\else%
-     \begingroup%
-     \fontseries{bx}%
-     \fontsize{18}{18}\selectfont%
-     \setlength{\baselineskip}{\z@}%
-     \raisebox{25pt}{\chaptertitlename\enspace}%
-     \endgroup%
-   \fi%
-   \thechapter}%
-  {-1.5pc}%
-  {%\ifodd\thepage\raggedleft\else\raggedright\fi%
-   \raggedleft%
-   \fontseries{bx}%
-   \fontsize{24}{24}\selectfont}%
-  [\addtocontents{loa}{\protect\addvspace{10pt}}]
-\titleformat{name=\chapter,numberless}[display]%
-  {\normalfont\hfuzz=\maxdimen}%
-  {}%
-  {-1pc}%
-  {%\ifodd\thepage\raggedleft\else\raggedright\fi%
-   \raggedleft%
-   \fontseries{bx}%
-   \fontsize{24}{24}\selectfont}
-\titlespacing*{\chapter}{0pt}{*7}{*9}
+%CHAPTER
+\titleformat{\chapter}[hang]
+{
+%\setcounter{satz}{0}
+\Huge\centering\scshape}
+{\color{accent}{\rmfamily\bfseries\thechapter}\huge: }
+{0pt}
+{\huge}
+\titlespacing*{\chapter}{0pt}{0pt}{2em}
 
 
 % Floats
