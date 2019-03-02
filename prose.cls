@@ -82,8 +82,6 @@
 % Line spread
 \newcommand{\diss@spread}{1.25}
 \setstretch{\diss@spread}
-\setlength{\parskip}{\baselineskip}
-\newcommand{\@minipagerestore}{\setlength{\parskip}{\baselineskip}}
 
 % Indentation
 \newlength{\diss@indent}
@@ -115,6 +113,9 @@
   \pdfstringdef{\@pdfauthor}{\@author}%
   \hypersetup{pdfauthor=\@pdfauthor}%
 }
+
+% TOC
+\setcounter{tocdepth}{1}
 
 
 % Sectioning
@@ -171,20 +172,6 @@
 \floatsetup[table]{capposition=top}
 
 \newcommand{\keyw}[1]{\textbf{#1}}
-
-
-% Table of Contents
-
-\titlecontents{chapter}[1pc]%
-  {\addvspace{2ex}\Large\filright}%
-  {\contentslabel[\figureversion{tab}\thecontentslabel]{1pc}}{\hspace*{-1pc}}%
-  {\nolinebreak\enskip\nolinebreak\mydiss@diamond\nolinebreak%
-    \enspace\nolinebreak\thecontentspage}[]
-\titlecontents{section}[2.4pc]{\filright}%
-  {\contentslabel[\figureversion{tab}\thecontentslabel]{1.4pc}}{\hspace*{-1.4pc}}%
-  {\nolinebreak\enskip\nolinebreak\mydiss@diamond\nolinebreak%
-    \enspace\nolinebreak\thecontentspage}[]
-\setcounter{tocdepth}{1}
 
 
 % List of Figures etc.
