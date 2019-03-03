@@ -19,7 +19,7 @@
 \RequirePackage{environ}
 \RequirePackage[compatibility=true]{caption}
 \RequirePackage{float}
-% \RequirePackage[document]{ragged2e}
+\RequirePackage[dvipsnames]{xcolor}
 
 % Packages --- Math
 \RequirePackage[fleqn]{mathtools}
